@@ -1,0 +1,8 @@
+films/*/film/vendor/
+films/*/film/assets/tiles/
+films/*/film/assets/human/
+films/*/film/assets/mixamo/
+films/*/tools/cache/
+__pycache__/
+*.mp4
+*.png.tmp

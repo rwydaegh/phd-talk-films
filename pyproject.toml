@@ -1,0 +1,23 @@
+[project]
+name = "phd-talk-films"
+version = "1.0.0"
+description = "Render the films of Robin Wydaeghe's PhD defense talk"
+requires-python = ">=3.11"
+dependencies = [
+    "playwright>=1.48",
+    "numpy",
+    "scipy",
+    "trimesh",
+    "embreex",
+    "rtree",
+    "mapbox-earcut",
+    "shapely",
+    "networkx",
+    "manifold3d",
+    "pillow",
+    "h5py",
+    "scikit-image",
+]
+
+[tool.uv]
+package = false

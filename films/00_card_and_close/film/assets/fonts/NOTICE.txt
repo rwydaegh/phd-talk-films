@@ -1,0 +1,8 @@
+Fonts in this folder are subsets, served under the SIL Open Font License 1.1
+(https://openfontlicense.org).
+
+garamond-regular.woff2, garamond-italic.woff2
+  EB Garamond 12, Copyright 2010-2012 Georg Duffner (http://www.georgduffner.at)
+
+inter.woff2
+  Inter, Copyright The Inter Project Authors (https://github.com/rsms/inter)

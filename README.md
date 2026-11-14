@@ -1,6 +1,6 @@
 # Films from my PhD defense talk
 
-This repository has the 4K versions of the films I showed in my PhD defense talk on radio waves and the human body.
+This repository has the 4K versions of the films I showed in my PhD defense talk on radio waves and the human body, and the code that renders them.
 
 <p>
 <img src="gifs/film01.gif" width="49%" alt="Film 1">
@@ -33,18 +33,58 @@ The [slides](https://github.com/rwydaegh/phd-talk-films/releases/download/v1/phd
 
 ## Blender files
 
-The films are real-time three.js renders. The [Blender files](https://github.com/rwydaegh/phd-talk-films/releases/download/v1/blender_files.zip) are the two animated scenes from the invitation.
+The films are three.js renders (see [Rendering the films](#rendering-the-films)). The [Blender files](https://github.com/rwydaegh/phd-talk-films/releases/download/v1/blender_files.zip) are the two animated scenes from the invitation.
 
 More about the work:
 
 - The talk: https://phd.rwydaeghe.be/talk/
 - The thesis: https://phd.rwydaeghe.be/thesis/
 
+## Rendering the films
+
+The films are three.js scenes that render frame by frame in a headless browser. The code for every film is in [`films/`](films). Each film folder has a README with its exact render command and the data files that are not in this repository.
+
+You need:
+
+- Python 3.11 or newer with [uv](https://docs.astral.sh/uv/)
+- ffmpeg
+- A GPU with WebGPU support in Chromium. On Linux, an NVIDIA GPU with Vulkan works.
+
+Set up once:
+
+```
+uv sync
+uv run playwright install chromium
+uv run python tools/get_three.py
+```
+
+`get_three.py` puts three.js r186 into each film folder. Then render a film from its `film/` folder, for example:
+
+```
+cd films/16_robot/film
+GPU=1 uv run python capture.py --out film16.mp4 --width 3840 --height 2160 --fps 30 --sub 1 --crf 17 --preset slow
+```
+
+`--sub` sets the number of sub-frames for motion blur. Without `GPU=1`, Chromium uses its software renderer. That is slow, but it is good for a quick test at low resolution: `uv run python still.py test 480 270 10` saves the frame at 10 s.
+
+### Data that is not in this repository
+
+Some films use data that I cannot share. You can get it from the source and make the film files with the scripts in each film folder.
+
+| Data | Films | Where to get it |
+|---|---|---|
+| Photorealistic 3D Tiles | 1, 14, 29 | A Google Maps Platform API key with the Map Tiles API. Then run `tools/fetch_tiles.py`. |
+| Virtual Population (Duke, Ella, Eartha, Thelonious) | 1, 7, 10, 20, 24, 27, 29, 34, card | A licence from the IT'IS Foundation, https://itis.swiss |
+| SMPL-X body model | 10, 14, 27 | Free registration for non-commercial use, https://smpl-x.is.tue.mpg.de |
+| Mixamo character and animations | 10, 14, 27 | A free Adobe account, https://www.mixamo.com |
+
+Film 16 runs with the data in this repository.
+
 ## Credit and license
 
 Credit: Robin Wydaeghe, WAVES, Ghent University – imec
 
-The films, slides and Blender files are licensed under [CC BY 4.0](LICENSE). The license covers my own work. Third-party data in the films keeps its own terms:
+The films, slides, Blender files and data are licensed under [CC BY 4.0](LICENSE). The code is licensed under the [MIT License](LICENSE-CODE). three.js is MIT, (c) three.js authors. The fonts are under the SIL Open Font License (see `assets/fonts/NOTICE.txt` in each film). The licenses cover my own work. Third-party data in the films keeps its own terms:
 
 - City buildings in films 1, 14 and 29: Map data ©Google (Photorealistic 3D Tiles)
 - Body models in films 1, 7, 10, 20, 24, 29, 34 and the card: IT'IS Foundation, Virtual Population
