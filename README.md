@@ -27,6 +27,12 @@ All films are 3840 x 2160, 30 fps, H.264 and silent.
 | [Film 29](https://github.com/rwydaegh/phd-talk-films/releases/download/v1/film29_cities_4k.mp4) | 0:44 | Rays traced from a pedestrian, then routes in ten cities |
 | [Film 34](https://github.com/rwydaegh/phd-talk-films/releases/download/v1/film34_close_4k.mp4) | 0:34 | The closing shot, from a child back to the invitation card |
 
+## Slides
+
+The [slides](https://github.com/rwydaegh/phd-talk-films/releases/download/v1/phd_talk_slides.pdf) are a PDF with one page per build step. Each film is shown as its last frame. The phasor animation from the slides is a separate [video](https://github.com/rwydaegh/phd-talk-films/releases/download/v1/phasors_animation.mp4).
+
+## Blender files
+
 The films are real-time three.js renders. The [Blender files](https://github.com/rwydaegh/phd-talk-films/releases/download/v1/blender_files.zip) are the two animated scenes from the invitation.
 
 More about the work:
@@ -38,7 +44,7 @@ More about the work:
 
 Credit: Robin Wydaeghe, WAVES, Ghent University – imec
 
-The films and Blender files are licensed under [CC BY 4.0](LICENSE). The license covers my own work. Third-party data in the films keeps its own terms:
+The films, slides and Blender files are licensed under [CC BY 4.0](LICENSE). The license covers my own work. Third-party data in the films keeps its own terms:
 
 - City buildings in films 1, 14 and 29: Map data ©Google (Photorealistic 3D Tiles)
 - Body models in films 1, 7, 10, 20, 24, 29, 34 and the card: IT'IS Foundation, Virtual Population
